@@ -24,7 +24,12 @@ public class Order {
     public long getQuantity() {return quantity;}
     public long getSequence() {return sequence;}
 
-    public void reduceQuantity(long amount) {quantity -= amount;}
+    public void reduceQuantity(long amount) {
+        if (amount <= 0 || amount > quantity) {
+            throw new IllegalArgumentException("invalid amount");
+        }
+        quantity -= amount;
+    }
 
     @Override public String toString() {
         return side + " " + quantity + " @ " + price +" (id =" + id + ")";

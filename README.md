@@ -1,5 +1,4 @@
 # order-book
-# order-book
 
 Order book / matching engine. Fall: Java. Winter break: rewrite in C++.
 
