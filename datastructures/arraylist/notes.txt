@@ -1,0 +1,5 @@
+1. size do so phan tu, capacity la kich co cua array
+
+2. add(x) khac add(0, x): add(x) nhanh hon 1 chut
+
+3. Do phuc tap cua add(i, x) va remove(i) la gi, vi sao? Deu la O(n)
