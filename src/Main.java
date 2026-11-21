@@ -25,5 +25,13 @@ public class Main {
         book.addOrder(new Order(4, Order.Side.SELL, 5030, 30, 4));
         book.addOrder(new Order(5, Order.Side.SELL, 5040, 30, 5));
         book.addOrder(new Order(6, Order.Side.BUY, 5040, 50, 6));
+
+        book.printBook();
+        System.out.println("cancel 3: " + book.cancelOrder(3));
+        System.out.println("cancel 1: " + book.cancelOrder(1));
+        System.out.println("cancel 4: " + book.cancelOrder(4));
+        System.out.println("cancel 999: " + book.cancelOrder(999));
+        System.out.println("cancel 3: " + book.cancelOrder(3));
+        book.printBook();
     }
 }

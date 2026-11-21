@@ -53,4 +53,52 @@ public class OrderBook {
         }
         return best;
     }
+
+    public boolean cancelOrder(long id) {
+        for (int i = 0; i < bids.size(); i++) {
+            if (bids.get(i).getId() == id) {
+                bids.remove(i);
+                return true;
+            }
+        }
+
+        for (int i = 0; i < asks.size(); i++) {
+            if (asks.get(i).getId() == id) {
+                asks.remove(i);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void printBook() {
+        ArrayList<Order> sortedBids = new ArrayList<>(bids);
+        ArrayList<Order> sortedAsks = new ArrayList<>(asks);
+
+        sortedAsks.sort((a, b) -> {
+            if (a.getPrice() != b.getPrice()) {
+                return Long.compare(a.getPrice(), b.getPrice());
+            }
+
+            return Long.compare(a.getSequence(), b.getSequence());
+        });
+
+        sortedBids.sort((a,b) -> {
+            if (a.getPrice() != b.getPrice()) {
+                return Long.compare(b.getPrice(), a.getPrice());
+            }
+
+            return Long.compare(a.getSequence(), b.getSequence());
+        });
+
+        System.out.println("=== ASKS ===");
+        for (Order o : sortedAsks) {
+            System.out.println(o.getId() + " " + o.getPrice()+ " " + o.getQuantity());
+        }
+        System.out.println("=== BIDS ===");
+        for (Order o : sortedBids) {
+            System.out.println(o.getId() + " " + o.getPrice() + " " + o.getQuantity());
+        }
+    }
 }
