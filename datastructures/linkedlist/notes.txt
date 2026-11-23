@@ -1,0 +1,6 @@
+1. get(i) cua ArrayList la O(1) vi mang nhay thang toi o i. get(i) cua LinkedList la O(n) vi phai di tung node tu head qua i lan next.
+
+2. removeLast can ca tail va prev de la O(1): tail cho biet node cuoi o dau, prev cho biet node ngay truoc no de dat next = null. Neu chi co head va next (danh sach lien ket don) thi phai di tu head cho toi node gan cuoi, tuc la O(n) (con ArrayList.removeLast la O(1)).
+
+3. Thi nghiem remove(0) n lan (n = 400,000): MyLinkedList duoi 1 ms, ArrayList 6776 ms. Moi lan n gap doi thi ArrayList mat gap ~4 lan (O(n^2)) vi phai dich ca mang sang trai, con LinkedList chi doi vai con tro (O(1) moi lan). Chon LinkedList khi hay them/xoa o dau hoac cuoi (hoac da cam san node can xoa), chon ArrayList khi hay truy cap theo chi so get(i).
+Trong order book: hang lenh o cung mot muc gia, lenh moi xep cuoi hang, lenh khop lay o dau hang, nen LinkedList cho them cuoi va lay dau deu O(1), con ArrayList lay dau la O(n).
